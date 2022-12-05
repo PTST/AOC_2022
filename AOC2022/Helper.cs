@@ -11,6 +11,7 @@ namespace AOC2022
     {
         public static string GetDay(int day, int year = 2022)
         {
+            
             if (!Directory.Exists("Inputs"))
             {
                 Directory.CreateDirectory("Inputs");
@@ -27,7 +28,11 @@ namespace AOC2022
                 Console.WriteLine($"Puzzle not yet available for {date:dd}");
                 return string.Empty;
             }
-
+            var AOC_TOKEN = Environment.GetEnvironmentVariable("AOC_TOKEN");
+            if (string.IsNullOrEmpty(AOC_TOKEN))
+            {
+                throw new Exception("No token found");
+            }
             var client = new HttpClient();
             var request = new HttpRequestMessage
             {
@@ -35,7 +40,7 @@ namespace AOC2022
                 RequestUri = new Uri($"https://adventofcode.com/{year}/day/{day}/input"),
                 Headers ={
                     { "User-Agent", "personal downloader for patrick%40steffensen.io" },
-                    { "Cookie", $"session={Environment.GetEnvironmentVariable("AOC_TOKEN")}" },
+                    { "Cookie", $"session={AOC_TOKEN}" },
                 },
             };
             using (var response = client.SendAsync(request).Result)
