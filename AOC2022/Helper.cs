@@ -60,12 +60,12 @@ namespace AOC2022
             return data;
         }
 
-        public static long[] GetDatAsLongArray(int day, char[]? splitOn = null)
+        public static long[] GetDayAsLongArray(int day, char[]? splitOn = null)
         {
             return GetDayAsStringArray(day, splitOn).Select(x => long.Parse(x)).ToArray();
         }
 
-        public static int[] GetDatAsIntArray(int day, char[]? splitOn = null)
+        public static int[] GetDayAsIntArray(int day, char[]? splitOn = null)
         {
             return GetDayAsStringArray(day, splitOn).Select(x => int.Parse(x)).ToArray();
         }
