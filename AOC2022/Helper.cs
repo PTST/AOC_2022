@@ -56,7 +56,8 @@ namespace AOC2022
         {
             splitOn ??= Environment.NewLine.ToCharArray();
             var input = GetDay(day);
-            return input.Split(splitOn, StringSplitOptions.RemoveEmptyEntries);
+            var data = input.Split(splitOn, StringSplitOptions.RemoveEmptyEntries);
+            return data;
         }
 
         public static long[] GetDatAsLongArray(int day, char[]? splitOn = null)
