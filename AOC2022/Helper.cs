@@ -22,7 +22,7 @@ namespace AOC2022
                 return File.ReadAllText(filepath);
             }
 
-            var date = new DateTime(2022, 12, day, 6, 0, 0);
+            var date = new DateTime(year, 12, day, 6, 0, 0);
             if (DateTime.Now < date)
             {
                 Console.WriteLine($"Puzzle not yet available for {date:dd}");
